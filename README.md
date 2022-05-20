@@ -7,7 +7,7 @@ SunCalcForDotNet is made of 2 files (both required for the library to work):
 
 
 # Basic usage
-Add both files to your project.
+Add both files to your project. Then:
 
 1. Add
 
@@ -80,3 +80,11 @@ Public Function getMoonTimes(jsDate As clsJSDate, lat As Double, lng As Double, 
 ```
 
 Returning classes are defined in SunCalHelper.vb
+
+# Compiled version
+
+If you use C#, or just don't want to mess with the code files, you might prefer to use the compiled DLL version.
+
+1. Download SunCalcForDotNet.dll
+2. Add a reference in your project to the dll. The dll includes both the main code and the helper classes.
+3. Now you can proceed from the point 1 in [Basic Usage](https://github.com/Joaquin500/SunCalcForDotNet/edit/main/README.md#basic-usage) section.
