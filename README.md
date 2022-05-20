@@ -1,16 +1,21 @@
 # SunCalcForDotNet
 SunCalcForDotNet (or SunCalc for .NET) is a translation into VB.NET of well known javascript Vladimir Agafonkin's SunCalc.
+
 SunCalcForDotNet is made of 2 files (both required for the library to work):
   * SunCalc.vb            - Main file. Contains the SunCalc code
   * SunCalcHelper.vb      - Helper classes for the main file
+
+
 # Basic usage
 Add both files to your project.
 
 1. Add
+
 ```vb.net
-Imports SunCalcForDotNet
+	Imports SunCalcForDotNet
 ```
-  on top of class or module you intend to use to work with SunCalc
+
+on top of class or module you intend to use to work with SunCalc
 
 2. Inside your class, instantiate SunCalc:
 
@@ -37,10 +42,41 @@ Imports SunCalcForDotNet
     Dim sunset As Date = suntimes(enumSunTimes.sunset).Add(timezone)
 ```
 
-**All dates returned by SunCalc are UTC**, so you might want to convert them into your time zone:
+
+_All dates returned by SunCalc are UTC_, so you might want to convert them into your time zone:
 
 ```vb.net
     Dim timezone As New TimeSpan(2, 0, 0)   ' Your time zone
     sunrise = sunrise.Add(timezone)
     sunset = sunset.Add(timezone)
 ```
+
+
+
+# Public Methods
+
+```vb.net
+Public Function getSunPosition(jsDate As clsJSDate, lat As Double, lng As Double) As clsSunPosition
+```
+
+```vb.net
+Public Sub addSunTime(angle As Double, riseName As String, setName As String)
+```
+
+```vb.net
+Public Function getSunTimes(jsdate As clsJSDate, lat As Double, lng As Double, Optional height As Double = 0.0R) As Dictionary(Of String, clsJSDate)
+```
+
+```vb.net
+Public Function getMoonPosition(jsDate As clsJSDate, lat As Double, lng As Double) As clsMoonPosition
+```
+
+```vb.net
+Public Function getMoonIllumination(jsDate As clsJSDate) As clsGetMoonIllumination
+```
+
+```vb.net
+Public Function getMoonTimes(jsDate As clsJSDate, lat As Double, lng As Double, inUTC As Boolean) As clsGetMoonTimes
+```
+
+Returning classes are defined in SunCalHelper.vb
